@@ -1,0 +1,30 @@
+services:
+  assistant:
+    build:
+      context: .
+      dockerfile: ./assistant/Dockerfile.assistant
+    volumes:
+      - ./assistant/.env:/app/.env
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./assistant/.env
+    networks:
+      - botnet
+
+  monitoring-bot:
+    build:
+      context: .
+      dockerfile: ./monitor_bot/Dockerfile.bot
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./monitor_bot/.env:/app/.env
+    env_file:
+      - ./monitor_bot/.env
+    networks:
+      - botnet
+    
+networks:
+  botnet:
+    driver: bridge

@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "code-review-assistant"
+version = "0.1.0"
+description = "A Git hook that plays sitcom laugh tracks when you commit."
+authors = [
+  { name = "Praful Srivastava", email = "prafulsrivastava2021@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "gitpython",
+    
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["code_review_assistant"]

@@ -1,0 +1,3 @@
+crewai
+fastapi
+uvicorn[standard]
