@@ -9,6 +9,12 @@ export default (app) => {
         console.log('Skipping comment from a bot user to avoid infinite loop.');
         return;
       }
+    
+    const commentBody = context.payload.comment.body || '';
+    if (!commentBody.includes('AnalyseThis')) {
+      console.log('Comment does not contain "AnalyseThis", skipping.');
+      return;
+    }
 
       const pr = context.payload.pull_request;
       const repo = context.payload.repository.name;
